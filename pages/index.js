@@ -15,7 +15,7 @@ function getPosts() {
 const PostLink = props => {
     const {post} = props;
     return (
-        <li key={post.id}>
+        <li>
             <Link href="/posts/[id]" as={`/posts/${post.id}`}>
                 <a className="post-link">{post.title}</a>
             </Link>
@@ -34,12 +34,12 @@ const Index = (props) => {
         <Layout>
             <h1>My Posts</h1>
             <ul>
-                {getPosts().map(post => (
-                    <PostLink post={post}/>
+                {getPosts().map((post, index) => (
+                    <PostLink key={index} post={post}/>
                 ))}
             </ul>
             <TvShows shows={props.shows}/>     
-            <Quotes />       
+            <Quotes />
         </Layout>
     );
 };
