@@ -11,10 +11,16 @@ const Layout = props => (
   <div style={layoutStyle}>    
     <Head>
       <title>A Next Project</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></link>
     </Head>
 
     <Header />
     {props.children}
+    <style global jsx>{`
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    `}</style>
   </div>
 );
 

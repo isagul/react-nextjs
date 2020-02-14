@@ -7,7 +7,6 @@ async function fetcher(url) {
 
 const Quotes = () => {
     const { data, error } = useSWR(`http://localhost:3000/api/allQuotes`, fetcher);
-    console.log(data);
 
     return (
         <main className="center">
@@ -16,7 +15,7 @@ const Quotes = () => {
                 data.map((item, index) => {
                     return (
                         <div key={index} className="quote-area">
-                            <Link href="/quotes/[id]" as={`/quotes/${item.id}`}>
+                            <Link href="/quotes/[author]" as={`/quotes/${item.url}`}>
                                 <a>
                                     <span className="quote">{item.quote}</span>
                                     <span className="author"> - {item.author}</span>
